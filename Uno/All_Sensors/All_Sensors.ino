@@ -32,9 +32,9 @@ DallasTemperature sensors(&oneWire);
 DHT dht(DHTPIN, DHTTYPE);
 
 //====================== Wind Sensor =========================//
-int windSensor = A2;
+int windSensor = A4;
 float voltageMax = 2.0;
-float voltageMin = .464; // Make sure the value is 3 decimal points, serial print by default displays only 2 decimal points. Currently the offset voltage is .405, but to be safer I havemade .409. This can vary for every sensor, make sure to check.
+float voltageMin = .469; // Make sure the value is 3 decimal points, serial print by default displays only 2 decimal points. Currently the offset voltage is .405, but to be safer I havemade .409. This can vary for every sensor, make sure to check.
 float voltageConversionConstant = .004882814;
 float sensorVoltage = 0;
 float windSpeed = 0;
@@ -134,14 +134,21 @@ void loop() {
   float voltage = sensorValue * (5.0 / 1023.0);
 
   sensorVoltage = sensorValue * voltageConversionConstant;
+  Serial.println();
+  
+  Serial.println("Raw values");
+  Serial.println(sensorValue);
+
+  Serial.println();
+  
   Serial.println("Wind Sensor voltage");
-  Serial.println(sensorVoltage, 3);
+  Serial.println(voltage, 3);
   
   if (sensorVoltage > voltageMin and sensorVoltage <= voltageMax) {
     Serial.println("HERE");
-    windSpeed += ((sensorVoltage - voltageMin) * windSpeedMax / (voltageMax - voltageMin)) * 2.232694; //For voltages above minimum value, use the linear relationship to calculate wind speed.
+    windSpeed += ((sensorVoltage - voltageMin) * windSpeedMax / (voltageMax - voltageMin)) * 2.232694; //For voltages above minimum value, use the linear relationship to calculate wind speed. * 2.232694
   }
-  Serial.println(windSpeed);
+//  Serial.println(windSpeed);
 
   average++;
 
