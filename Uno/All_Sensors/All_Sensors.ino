@@ -34,7 +34,7 @@ DHT dht(DHTPIN, DHTTYPE);
 //====================== Wind Sensor =========================//
 int windSensor = A4;
 float voltageMax = 2.0;
-float voltageMin = .469; // Make sure the value is 3 decimal points, serial print by default displays only 2 decimal points. Currently the offset voltage is .405, but to be safer I havemade .409. This can vary for every sensor, make sure to check.
+float voltageMin = .454; // Make sure the value is 3 decimal points, serial print by default displays only 2 decimal points. Currently the offset voltage is .405, but to be safer I havemade .409. This can vary for every sensor, make sure to check.
 float voltageConversionConstant = .004882814;
 float sensorVoltage = 0;
 float windSpeed = 0;
