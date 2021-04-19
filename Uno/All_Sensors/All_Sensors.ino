@@ -146,7 +146,7 @@ void loop() {
   
   if (sensorVoltage > voltageMin and sensorVoltage <= voltageMax) {
     Serial.println("HERE");
-    windSpeed += ((sensorVoltage - voltageMin) * windSpeedMax / (voltageMax - voltageMin)) * 2.232694; //For voltages above minimum value, use the linear relationship to calculate wind speed. * 2.232694
+    windSpeed += ((sensorVoltage - voltageMin) * windSpeedMax / (voltageMax - voltageMin)); //For voltages above minimum value, use the linear relationship to calculate wind speed. * 2.232694
   }
 //  Serial.println(windSpeed);
 
