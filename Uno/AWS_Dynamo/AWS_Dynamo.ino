@@ -21,8 +21,8 @@ char receivedChars[numChars];   // an array to store the received data
 String X(1000);
 boolean newData = false;
 
-const char* ssid = "IKEA"; //TP-Link_82DE
-const char* password = "ArizonaIstToll!"; //67244737
+const char* ssid = "IKEA"; //TP-Link_82DE //IKEA
+const char* password = "ArizonaIstToll!"; //67244737 //ArizonaIstToll!
 //char data[1000];
 char data[BUFFER_LEN];
 String receivedString; 
